@@ -1,4 +1,4 @@
-button {
+.button {
     /* Variables */
     --button_radius: 0.75em;
     --button_color: #000000;

@@ -1,21 +1,56 @@
-import React from 'react'
+'use client';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { CgMenuGridR } from 'react-icons/cg';
+
+const links = ['About Us', 'Tracks', 'Sponsors', 'FAQ'];
 
 const Nav = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className='p-10 sticky inset-x-0 top-0 z-30 w-full bg-black/30 backdrop-blur-lg transition-all'>
       <div className='flex justify-between items-center text-xl font-bold'>
-        <div>
-            <div className='hover:text-[#006BFF] hover:scale-105 transition-all duration-200'>Logo</div>
+        <div className='hover:text-[#006BFF] hover:scale-105 transition-all duration-200'>Logo</div>
+        
+        <div className='hidden md:flex items-center gap-10'>
+          {links.map((link, index) => (
+            <div key={index} className='hover:text-[#006BFF] hover:scale-105 transition-all duration-200'>{link}</div>
+          ))}
         </div>
-        <div className='flex items-center gap-10'>
-            <div className='hover:text-[#006BFF] hover:scale-105 transition-all duration-200'>About Us</div>
-            <div className='hover:text-[#006BFF] hover:scale-105 transition-all duration-200'>Tracks</div>
-            <div className='hover:text-[#006BFF] hover:scale-105 transition-all duration-200'>Sponsors</div>
-            <div className='hover:text-[#006BFF] hover:scale-105 transition-all duration-200'>FAQ</div>
+
+        <div className='md:hidden flex items-center'>
+          <button onClick={toggleMenu} className='focus:outline-none'>
+            <motion.div
+              initial={isOpen ? 'open' : 'closed'}
+              animate={isOpen ? 'open' : 'closed'}
+              transition={{ duration: 0.2 }}
+            >
+              <CgMenuGridR className='text-xl' /> 
+            </motion.div>
+          </button>
         </div>
       </div>
-    </div>
-  )
-}
 
-export default Nav
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3 }}
+          className='max-w-[40vw] flex flex-col md:hidden mt-4 border-2 rounded border-[#006BFF] right-[10vw] absolute py-2 pl-4 bg-black'
+        >
+          {links.map((link, index) => (
+            <div key={index} className='text-right p-4 py-2 hover:text-[#006BFF] hover:scale-105 transition-all duration-200 animate-flicker'>{link}</div>
+          ))}
+        </motion.div>
+      )}
+    </div>
+  );
+};
+
+export default Nav;

@@ -38,21 +38,21 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
 
     return (
         <div>
-            <div className='text-[#006BFF] flex gap-20'>
+            <div className='text-[#006BFF] flex md:gap-20 gap-10'>
                 <div className='flex flex-col items-center justify-center'>
-                    <span className='text-6xl font-bold'>{timeRemaining.days} </span>
+                    <span className='md:text-6xl text-3xl font-bold'>{timeRemaining.days} </span>
                     <span>Days</span>
                 </div>
                 <div className='flex flex-col items-center justify-center'>
-                    <span className='text-6xl font-bold'>{timeRemaining.hours} </span>
+                    <span className='md:text-6xl text-3xl font-bold'>{timeRemaining.hours} </span>
                     <span>Days</span>
                 </div>
                 <div className='flex flex-col items-center justify-center'>
-                    <span className='text-6xl font-bold'>{timeRemaining.minutes} </span>
+                    <span className='md:text-6xl text-3xl font-bold'>{timeRemaining.minutes} </span>
                     <span>Days</span>
                 </div>
                 <div className='flex flex-col items-center justify-center'>
-                    <span className='text-6xl font-bold'>{timeRemaining.seconds} </span>
+                    <span className='md:text-6xl text-3xl font-bold'>{timeRemaining.seconds} </span>
                     <span>Days</span>
                 </div>
             </div>

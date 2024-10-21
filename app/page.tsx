@@ -14,7 +14,7 @@ const Page = () => {
         autoPlay 
         loop 
         muted 
-        className="w-screen h-screen fixed top-0 left-0 object-cover z-0" 
+        className="w-screen h-screen fixed top-0 left-0 object-cover z-0 opacity-80" 
         aria-hidden="true" // For accessibility
       >
         <source src="/space.mp4" type="video/mp4" />
