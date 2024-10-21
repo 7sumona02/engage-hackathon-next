@@ -36,8 +36,8 @@ const FAQ: React.FC = () => {
   }
 
   return (
-    <div className="flex justify-center items-center flex-col pb-40 pt-2  mt-40">
-      <h1 className="uppercase text-center text-4xl font-bold pt-2 pb-10  duration-300 transition-all animate-flicker"><RandomizedTextEffect text="FAQ" /></h1>
+    <div id='faq' className="flex justify-center items-center flex-col pb-40 pt-2  mt-40">
+      <h1 className="uppercase text-center text-6xl font-bold pt-2 pb-10  duration-300 transition-all animate-flicker mb-10"><RandomizedTextEffect text="FAQ" /></h1>
       <div className="h-fit border rounded-lg p-2 bg-black md:w-[90vw] w-[85vw]">
         {tabs.map((tab, index) => (
           <motion.div

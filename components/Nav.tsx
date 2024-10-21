@@ -2,8 +2,15 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CgMenuGridR } from 'react-icons/cg';
+import Link from 'next/link';
 
-const links = ['About Us', 'Tracks', 'Sponsors', 'FAQ'];
+// Array of link objects with text and href
+const links = [
+  { text: 'About Us', href: '/#about' },
+  { text: 'Tracks', href: '/#tracks' },
+  { text: 'Sponsors', href: '/#sponsors' },
+  { text: 'FAQ', href: '/#faq' },
+];
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,11 +22,13 @@ const Nav = () => {
   return (
     <div className='p-10 sticky inset-x-0 top-0 z-30 w-full bg-black/30 backdrop-blur-lg transition-all'>
       <div className='flex justify-between items-center text-xl font-bold'>
-        <div className='hover:text-[#006BFF] hover:scale-105 transition-all duration-200'>Logo</div>
+        <div className='hover:text-[#006BFF] hover:scale-105 transition-all duration-200'>🪐</div>
         
         <div className='hidden md:flex items-center gap-10'>
           {links.map((link, index) => (
-            <div key={index} className='hover:text-[#006BFF] hover:scale-105 transition-all duration-200'>{link}</div>
+            <Link href={link.href} key={index} className='hover:text-[#006BFF] hover:scale-105 transition-all duration-200'>
+              {link.text}
+            </Link>
           ))}
         </div>
 
@@ -45,7 +54,9 @@ const Nav = () => {
           className='max-w-[40vw] flex flex-col md:hidden mt-4 border-2 rounded border-[#006BFF] right-[10vw] absolute py-2 pl-4 bg-black'
         >
           {links.map((link, index) => (
-            <div key={index} className='text-right p-4 py-2 hover:text-[#006BFF] hover:scale-105 transition-all duration-200 animate-flicker'>{link}</div>
+            <Link href={link.href} key={index} className='text-right p-4 py-2 hover:text-[#006BFF] hover:scale-105 transition-all duration-200 animate-flicker'>
+              {link.text}
+            </Link>
           ))}
         </motion.div>
       )}

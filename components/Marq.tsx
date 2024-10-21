@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils'
 import Marquee from './marquee'
+import { RandomizedTextEffect } from './text-randomized'
 
 const reviews = [
   {
@@ -80,7 +81,8 @@ const ReviewCard = ({
 
 const Marq = () => {
   return (
-    <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background py-20 md:shadow-xl">
+    <div id='sponsors' className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background py-20 md:shadow-xl bg-transparent">
+            <h1 className="uppercase text-center text-6xl font-bold pt-2 pb-10  duration-300 transition-all animate-flicker mb-10"><RandomizedTextEffect text="Our Sponsors" /></h1>
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />

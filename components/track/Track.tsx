@@ -16,7 +16,7 @@ export default function Track(): JSX.Element {
           </section>
         </div> */}
 
-        <section className="text-white w-full">
+        <section id='tracks' className="text-white w-full">
           <div className="flex md:flex-row flex-col-reverse justify-between md:px-40 px-0">
             <div className="grid gap-2">
               <figure className="sticky top-0 h-screen grid place-content-center">
